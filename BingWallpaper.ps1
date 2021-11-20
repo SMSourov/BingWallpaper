@@ -139,8 +139,8 @@ $UHD_filename = $body.images[0].copyright.Split('-(', 2)[-2].Replace(" ", "-").R
 
 # Download the images to a specified folder
 # $filepath = $PSScriptRoot+"\"+$filename
-$filepath = "C:\Users\David\OneDrive\PhotoStream\Wallpaper\Bing\" + $filename
-$UHD_filepath = "C:\Users\David\OneDrive\PhotoStream\Wallpaper\Bing\" + $UHD_filename
+$filepath = "C:\Users\$env:username\Pictures\" + $filename
+$UHD_filepath = "C:\Users\$env:username\Pictures\" + $UHD_filename
 Invoke-WebRequest -Method Get -Uri $fileurl -OutFile $filepath
 Invoke-WebRequest -Method Get -Uri $UHD_fileurl -OutFile $UHD_filepath
 
@@ -149,7 +149,7 @@ $filepath
 
 # Use: Set-WallPaper -Image "C:\Wallpaper\Background.jpg" -Style Fit
 # Styles: Fill, Fit, Stretch, Tile, Center, Span
-Set-WallPaper -Image "$filepath" -Style Fill
+# Set-WallPaper -Image "$filepath" -Style Fill
 
 Exit
 # END OF LINE
