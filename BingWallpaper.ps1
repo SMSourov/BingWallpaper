@@ -139,8 +139,53 @@ $UHD_filename = $body.images[0].copyright.Split('-(', 2)[-2].Replace(" ", "-").R
 
 # Download the images to a specified folder
 # $filepath = $PSScriptRoot+"\"+$filename
-$filepath = "C:\Users\$env:username\Pictures\" + $filename
-$UHD_filepath = "C:\Users\$env:username\Pictures\" + $UHD_filename
+
+# Get the current directory
+$curDir = Get-Location
+
+# Check if there is a folder named "Bing Wallpapers". 
+# If the folder doesn't exist, create the folder.
+# Also, if the folder exist, check whether FHD and UHD.
+# folder exitst or not. if not, create 2 folders named FHD and UHD.
+$folderName = "Bing wallpaper"
+if (Test-Path $curDir\$folderName)
+{
+    # Write-Host "The folder already exist."
+    cd $curDir\$folderName
+    # FHD
+    if (Test-Path "FHD")
+    {
+        Write-Host "The FHD folder already exist."
+    }
+    else
+    {
+        New-Item "FHD" -ItemType Directory
+    }
+    # UHD
+    if (Test-Path "FHD")
+    {
+        Write-Host "The UHD folder already exist."
+    }
+    else
+    {
+        New-Item "UHD" -ItemType Directory
+    }
+}
+else
+{
+    New-Item $folderName -ItemType Directory
+    # Write-Host "The folder is created."
+    cd $curDir\$folderName
+    New-Item "FHD" -ItemType Directory
+    New-Item "UHD" -ItemType Directory
+}
+
+$filepath =  "$curDir\Bing wallpaper\FHD\" + $filename
+$UHD_filepath =  "$curDir\Bing wallpaper\UHD\" + $UHD_filename
+
+# $filepath = "C:\Users\#env:username\Pictures\Bing wallpaper\" + $filename
+# $UHD_filepath = "C:\Users\$env:username\Pictures\Bing wallpaper\" + $UHD_filename
+
 Invoke-WebRequest -Method Get -Uri $fileurl -OutFile $filepath
 Invoke-WebRequest -Method Get -Uri $UHD_fileurl -OutFile $UHD_filepath
 
@@ -149,7 +194,7 @@ $filepath
 
 # Use: Set-WallPaper -Image "C:\Wallpaper\Background.jpg" -Style Fit
 # Styles: Fill, Fit, Stretch, Tile, Center, Span
-# Set-WallPaper -Image "$filepath" -Style Fill
+Set-WallPaper -Image "$filepath" -Style Fill
 
 Exit
 # END OF LINE
