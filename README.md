@@ -14,3 +14,7 @@ Using the Bing API, you can easily get the images for your own use. This script 
 In my own testing, this PowerShell file can download the UHD picture. By default, it will save the HD and UHD picture in Pictures folder and will not set the desktop background image.
 
 The project where this project is forked from: [caressofsteel/bingwallpaper](https://github.com/caressofsteel/bingwallpaper)
+
+You can use this script file to update your wallpaper everytime you turn on your PC. You can use Task Scheduler to perform this task. The command line to perform this task would be
+
+## powershell -ExecutionPolicy Bypass -File BingWallpaper.ps1
