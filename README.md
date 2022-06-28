@@ -1,7 +1,3 @@
-## ⚠ This repo is depricated. I'll quickly give a link to a better repo.
-This program relys on Internet Explorer in works in Windows only.
-Internet Explorer will soon be removed from Windows. 
-
 ## BingWallPaper
 ### Gets/Saves/Sets Bing Wallpaper of the Day
 <br />
