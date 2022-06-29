@@ -17,4 +17,4 @@ The project where this project is forked from: [caressofsteel/bingwallpaper](htt
 
 You can use this script file to update your wallpaper everytime you turn on your PC. You can use Task Scheduler to perform this task. The command line to perform this task would be
 
-## powershell -ExecutionPolicy Bypass -File BingWallpaper.ps1
+## powershell -ExecutionPolicy Bypass -File BingWallpaperWindows.ps1
