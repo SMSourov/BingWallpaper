@@ -133,9 +133,9 @@ $fileurl = "https://www.bing.com/" + $body.images[0].url
 $UHD_fileurl = $fileurl.Replace("1920x1080","UHD")
 
 # Determine filename for both HD & UHD images
-$filename = $body.images[0].copyright.Split('-(', 2)[-2].Replace(" ", "-").Replace("?", "").Replace("-", " ").TrimEnd(' ') + " - " + $body.images[0].startdate + "_HD.jpg"
+$filename = $body.images[0].copyright.Split('-(', 2)[-2].Replace(" ", "-").Replace("?", "").Replace("/", ", ").Replace("-", " ").TrimEnd(' ') + " - " + $body.images[0].startdate + "_HD.jpg"
 
-$UHD_filename = $body.images[0].copyright.Split('-(', 2)[-2].Replace(" ", "-").Replace("?", "").Replace("-", " ").TrimEnd(' ') + " - " + $body.images[0].startdate + "_UHD.jpg"
+$UHD_filename = $body.images[0].copyright.Split('-(', 2)[-2].Replace(" ", "-").Replace("?", "").Replace("/", ", ").Replace("-", " ").TrimEnd(' ') + " - " + $body.images[0].startdate + "_UHD.jpg"
 
 # Download the images to a specified folder
 # $filepath = $PSScriptRoot+"\"+$filename
